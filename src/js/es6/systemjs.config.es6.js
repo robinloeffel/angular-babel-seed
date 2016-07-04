@@ -3,7 +3,8 @@
     ** ANGULAR 2 QUICKSTART CONFIG **
     *********************************
 
-    see https://angular.io/docs/ts/latest/quickstart.html#!#add-config-files
+    lightly modified; original can be found at
+    https://angular.io/docs/ts/latest/quickstart.html#!#add-config-files
 */
 
 (global => {
