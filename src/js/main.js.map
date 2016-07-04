@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.es6.js"],"names":[],"mappings":";;AAAA;;AAEA;;AAEA","file":"main.js","sourcesContent":["import {bootstrap} from '@angular/platform-browser-dynamic';\r\n\r\nimport {AppComponent} from './app.component';\r\n\r\nbootstrap(AppComponent);\r\n"],"sourceRoot":"/source/"}

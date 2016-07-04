@@ -1,0 +1,50 @@
+{
+  "name": "budget",
+  "title": "Budgeting with Angular 2 and ES6",
+  "description": "Budgeting web app",
+  "author": "Robin Löffel <hi@robinloeffel.ch> (https://robinloeffel.ch)",
+  "licence": "ISC",
+  "version": "0.0.1",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rbnlffl/budget.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rbnlffl/portfolio/issues"
+  },
+  "keywords": [
+    "budget",
+    "angular2",
+    "es6",
+    "babel"
+  ],
+  "scripts": {
+    "start": "gulp"
+  },
+  "devDependencies": {
+    "@angular/common": "2.0.0-rc.4",
+    "@angular/compiler": "2.0.0-rc.4",
+    "@angular/core": "2.0.0-rc.4",
+    "@angular/forms": "0.2.0",
+    "@angular/http": "2.0.0-rc.4",
+    "@angular/platform-browser": "2.0.0-rc.4",
+    "@angular/platform-browser-dynamic": "2.0.0-rc.4",
+    "@angular/router": "3.0.0-beta.1",
+    "@angular/router-deprecated": "2.0.0-rc.2",
+    "@angular/upgrade": "2.0.0-rc.4",
+    "babel-preset-angular2": "0.0.2",
+    "babel-preset-es2015": "^6.9.0",
+    "core-js": "^2.4.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-connect": "^4.1.0",
+    "gulp-ext-replace": "^0.3.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "reflect-metadata": "^0.1.3",
+    "run-sequence": "^1.2.2",
+    "rxjs": "5.0.0-beta.6",
+    "systemjs": "0.19.27",
+    "zone.js": "^0.6.12"
+  }
+}
