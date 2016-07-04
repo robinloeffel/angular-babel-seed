@@ -1,20 +1,19 @@
 {
-  "name": "budget",
-  "title": "Budgeting with Angular 2 and ES6",
-  "description": "Budgeting web app",
+  "name": "angular2-babel-quickstart",
+  "title": "Angular 2 with Babel - Quickstart",
+  "description": "The super-simple Angular 2 quickstarter with ES6/Babel",
   "author": "Robin Löffel <hi@robinloeffel.ch> (https://robinloeffel.ch)",
   "licence": "ISC",
   "version": "0.0.1",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rbnlffl/budget.git"
+    "url": "git+https://github.com/rbnlffl/angular2-babel-quickstart.git"
   },
   "bugs": {
-    "url": "https://github.com/rbnlffl/portfolio/issues"
+    "url": "https://github.com/rbnlffl/angular2-babel-quickstart/issues"
   },
   "keywords": [
-    "budget",
     "angular2",
     "es6",
     "babel"
