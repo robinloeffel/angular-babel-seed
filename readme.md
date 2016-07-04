@@ -14,9 +14,7 @@ This will install all packages, transpile ES6 to ES5 (with sourcemaps for debugg
 
 ## Guide
 ### Configuring Babel for Angular 2
-After we've set up, our gulpfile we need to install to presets for Babel so it knows what language the source code is written in and what framework we use. We do this by npm-installing `babel-preset-es2015` and `babel-preset-angular2`.
-
-When that's done all we need to do is including these two presets in .babelrc and we're done here.
+After we've set up our gulpfile, we need to install to presets for Babel so it knows what language the source code is written in and what framework we use. We do this by npm-installing `babel-preset-es2015` and `babel-preset-angular2`. When that's done all we need to do is including these two presets in .babelrc and we're done here.
 
 ### Including Stuff Inside index.html
 Since Angular 2 is experimental, we need to include polyfills and fallbacks. These are [core-js](https://github.com/zloirock/core-js), [reflect-metadata](https://www.npmjs.com/package/reflect-metadata) and [zone.js](https://github.com/angular/zone.js/). Also, because the quickstarter isn't using anything like [rollup.js](http://rollupjs.org/) or [Browserify](http://browserify.org/), we need to include [systemjs](https://github.com/systemjs/systemjs) which allows us to `require` things inside the client-side JavaScript.
