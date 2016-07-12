@@ -10,7 +10,7 @@ Run the following two commands inside the project folder after each other to get
 
     gulp
 
-This will install all packages, transpile ES6 to ES5 (with sourcemaps for debugging) and run a server at [localhost:3000](http://localhost:3000).
+This will install all packages, transpile ES6 to ES5 (with sourcemaps for debugging), run a server at [localhost:3000](http://localhost:3000) and watch the source files for changes.
 
 ## Guide
 ### Configuring Babel for Angular 2
@@ -25,5 +25,6 @@ You've probably wondered where the fuck that Angular 2 magic comes from. Well, i
 ## Any Questions?
 Hopefully my little starter helped understand the setup process for Angular 2 projects. If you need further assistance or encounter any problems, feel free to open an issue. Another seed project for Angular 2 with Babel can be found [here](https://github.com/shuhei/babel-angular2-app).
 
-## ToDO
+## ToDo
 * Simplify [setup.js](https://github.com/rbnlffl/angular2-babel-quickstart/blob/master/src/js/setup.js)
+* Add LiveReload
