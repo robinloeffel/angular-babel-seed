@@ -1,8 +1,4 @@
-'use strict';
+import {bootstrap} from '@angular/platform-browser-dynamic';
+import {AppComponent} from './app.component';
 
-var _platformBrowserDynamic = require('@angular/platform-browser-dynamic');
-
-var _app = require('./app.component');
-
-(0, _platformBrowserDynamic.bootstrap)(_app.AppComponent);
-//# sourceMappingURL=main.js.map
+bootstrap(AppComponent);

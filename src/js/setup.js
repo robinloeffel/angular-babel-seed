@@ -1,5 +1,3 @@
-'use strict';
-
 /*
     *********************************
     ** ANGULAR 2 QUICKSTART CONFIG **
@@ -9,14 +7,14 @@
     https://angular.io/docs/ts/latest/quickstart.html#!#add-config-files
 */
 
-(function (global) {
-    var map = {
-        'app': 'src/js/',
-        '@angular': 'node_modules/@angular',
-        'rxjs': 'node_modules/rxjs'
+(global => {
+    let map = {
+        'app': 'js/',
+        '@angular': 'https://npmcdn.com/@angular',
+        'rxjs': 'https://npmcdn.com/rxjs@5.0.0-beta.6'
     };
 
-    var packages = {
+    let packages = {
         'app': {
             main: 'main.js',
             defaultExtension: 'js'
@@ -26,7 +24,18 @@
         }
     };
 
-    var ngPackageNames = ['common', 'compiler', 'core', 'forms', 'http', 'platform-browser', 'platform-browser-dynamic', 'router', 'router-deprecated', 'upgrade'];
+    let ngPackageNames = [
+        'common',
+        'compiler',
+        'core',
+        'forms',
+        'http',
+        'platform-browser',
+        'platform-browser-dynamic',
+        'router',
+        'router-deprecated',
+        'upgrade',
+    ];
 
     function packIndex(pkgName) {
         packages['@angular/' + pkgName] = {
@@ -42,7 +51,7 @@
         };
     }
 
-    var setPackageConfig = System.packageWithIndex ? packIndex : packUmd;
+    let setPackageConfig = System.packageWithIndex ? packIndex : packUmd;
 
     ngPackageNames.forEach(setPackageConfig);
 
@@ -51,11 +60,14 @@
         defaultExtension: 'js'
     };
 
-    var config = {
+    let config = {
         map: map,
         packages: packages
     };
 
     System.config(config);
-})(undefined);
-//# sourceMappingURL=systemjs.config.js.map
+
+    System.import('app').catch((err) => {
+        console.error(err);
+    });
+})(this);

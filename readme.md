@@ -24,3 +24,6 @@ You've probably wondered where the fuck that Angular 2 magic comes from. Well, i
 
 ## Any Questions?
 Hopefully my little starter helped understand the setup process for Angular 2 projects. If you need further assistance or encounter any problems, feel free to open an issue. Another seed project for Angular 2 with Babel can be found [here](https://github.com/shuhei/babel-angular2-app).
+
+## ToDO
+* Simplify [setup.js](https://github.com/rbnlffl/angular2-babel-quickstart/blob/master/src/js/setup.js)
