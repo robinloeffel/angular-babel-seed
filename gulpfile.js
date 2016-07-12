@@ -54,7 +54,6 @@ gulp.task('vendor', () => {
             'node_modules/reflect-metadata/Reflect.js',
             'node_modules/systemjs/dist/system.src.js'
         ])
-        .pipe(gulp.dest('dist/js/lib/'))
         .pipe(sourcemaps.init())
         .pipe(concat('vendor.js'))
         .pipe(uglify())
