@@ -10,8 +10,8 @@
 (global => {
     let map = {
         'app': 'js/',
-        '@angular': 'https://npmcdn.com/@angular',
-        'rxjs': 'https://npmcdn.com/rxjs@5.0.0-beta.6'
+        '@angular': 'https://unpkg.com/@angular',
+        'rxjs': 'https://unpkg.com/rxjs@5.0.0-beta.6'
     };
 
     let packages = {
