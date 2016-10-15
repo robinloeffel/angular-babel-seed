@@ -10,7 +10,7 @@ Run the following two commands inside the project folder after each other to get
 
     gulp
 
-This will install all packages, transpile ES6 to ES5 (with sourcemaps for debugging), run a server at [localhost:3000](http://localhost:3000) and watch the source files for changes.
+This will install all packages, transpile ES6 to ES5 (with sourcemaps for debugging), run a server at [localhost:8080](http://localhost:8080) and watch the source files for changes.
 
 ## Guide
 ### Configuring Babel for Angular 2
@@ -27,3 +27,4 @@ Hopefully my little starter helped understand the setup process for Angular 2 pr
 
 ## ToDo
 * Add LiveReload
+* Separate production and development configurations
