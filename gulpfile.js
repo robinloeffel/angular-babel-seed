@@ -3,36 +3,33 @@
 let gulp = require('gulp'),
     runSequence = require('run-sequence'),
     del = require('del'),
-    babel = require('gulp-babel'),
     connect = require('gulp-connect'),
     sourcemaps = require('gulp-sourcemaps'),
-    uglify = require('gulp-uglify'),
-    less = require('gulp-less'),
+    sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     cleanCss = require('gulp-clean-css'),
-    concat = require('gulp-concat');
+    webpack = require('webpack'),
+    webpackWrapper = require('webpack-stream'),
+    webpackConfig = require('./webpack.config.js');
 
 gulp.task('default', (callback) => {
-    runSequence('clean', ['babel', 'less', 'html', 'vendor'], 'watch', 'serve', callback);
+    runSequence('clean', ['webpack', 'sass', 'html'], 'watch', 'serve', callback);
 });
 
 gulp.task('clean', () => {
     return del('dist/*');
 });
 
-gulp.task('babel', () => {
-    return gulp.src('src/js/*.js')
-        .pipe(sourcemaps.init())
-        .pipe(babel())
-        .pipe(uglify())
-        .pipe(sourcemaps.write('.'))
+gulp.task('webpack', () => {
+    return gulp.src('src/js/main.js')
+        .pipe(webpackWrapper(webpackConfig, webpack))
         .pipe(gulp.dest('dist/js/'));
 });
 
-gulp.task('less', () => {
-    return gulp.src('src/less/*.less')
+gulp.task('sass', () => {
+    return gulp.src('src/sass/*.scss')
         .pipe(sourcemaps.init())
-        .pipe(less())
+        .pipe(sass())
         .pipe(autoprefixer({
             browsers: ['last 3 versions'],
             cascade: false
@@ -47,30 +44,16 @@ gulp.task('html', () => {
         .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('vendor', () => {
-    return gulp.src([
-            'node_modules/core-js/client/shim.js',
-            'node_modules/zone.js/dist/zone.js',
-            'node_modules/reflect-metadata/Reflect.js',
-            'node_modules/systemjs/dist/system.src.js'
-        ])
-        .pipe(sourcemaps.init())
-        .pipe(concat('vendor.js'))
-        .pipe(uglify())
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('dist/js/'));
-});
-
 gulp.task('serve', () => {
     return connect.server({
-        port: 3000,
+        port: 8080,
         root: 'dist/',
         livereload: true
     });
 });
 
 gulp.task('watch', () => {
-    gulp.watch('src/js/*.js', ['babel']);
-    gulp.watch('src/less/*.less', ['less']);
+    gulp.watch('src/js/*.js', ['webpack']);
+    gulp.watch('src/sass/*.scss', ['sass']);
     gulp.watch('src/*.html', ['html']);
 });

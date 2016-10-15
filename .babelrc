@@ -1,3 +1,6 @@
 {
-    "presets": ["es2015", "angular2"]
+    "presets": [
+        "es2015",
+        "angular2"
+    ]
 }

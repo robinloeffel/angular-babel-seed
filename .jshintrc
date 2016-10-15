@@ -1,4 +1,5 @@
 {
     "esversion": 6,
-    "jquery": true
+    "jquery": true,
+    "node": true
 }
