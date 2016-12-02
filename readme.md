@@ -28,4 +28,4 @@ You've probably wondered where that juicy Angular 2 magic comes from. It all ori
 Hopefully my starter helped understand the setup process for Angular 2 projects. If you need further assistance or encounter any problems, feel free to open an issue. A list of other Angular 2 + Babel starters can be found [here](https://github.com/AngularClass/awesome-angular2#angular-2-in-babel).
 
 ## ToDo
-* Add LiveReload
+* Extend the readme

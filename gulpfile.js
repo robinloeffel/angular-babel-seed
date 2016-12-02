@@ -9,8 +9,8 @@ let gulp = require('gulp'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     cleanCss = require('gulp-clean-css'),
-    webpack = require('webpack'),
-    webpackWrapper = require('webpack-stream');
+    webpack = require('webpack-stream'),
+    webpackConfig = process.argv[2] === '--dev' ? require('./webpack.config.dev.js') : require('./webpack.config.prod.js');
 
 gulp.task('clean', () => {
     return del('dist/*');
@@ -21,11 +21,10 @@ gulp.task('open', () => {
 });
 
 gulp.task('webpack', () => {
-    let webpackConfig = process.argv[2] === '--dev' ? require('./webpack.config.dev.js') : require('./webpack.config.prod.js');
-
     return gulp.src('src/js/main.js')
-        .pipe(webpackWrapper(webpackConfig, webpack))
-        .pipe(gulp.dest('dist/js/'));
+        .pipe(webpack(webpackConfig))
+        .pipe(gulp.dest('dist/js/'))
+        .pipe(connect.reload());
 });
 
 gulp.task('sass', () => {
@@ -38,12 +37,14 @@ gulp.task('sass', () => {
         }))
         .pipe(cleanCss())
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('dist/css/'));
+        .pipe(gulp.dest('dist/css/'))
+        .pipe(connect.reload());
 });
 
 gulp.task('html', () => {
     return gulp.src('src/*.html')
-        .pipe(gulp.dest('dist/'));
+        .pipe(gulp.dest('dist/'))
+        .pipe(connect.reload());
 });
 
 gulp.task('serve', () => {

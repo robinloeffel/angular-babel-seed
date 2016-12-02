@@ -50,7 +50,6 @@
         "gulp-sourcemaps": "^1.9.1",
         "open": "^0.0.5",
         "run-sequence": "^1.2.2",
-        "webpack": "^1.13.3",
         "webpack-stream": "^3.2.0"
     }
 }
