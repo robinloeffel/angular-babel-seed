@@ -1,4 +1,4 @@
-var webpack = require('webpack');
+let webpack = require('webpack');
 
 module.exports = {
     entry: './src/js/main.js',
@@ -16,9 +16,5 @@ module.exports = {
     },
     resolve: {
         extensions: ['', '.js']
-    },
-    devtool: 'source-map',
-    plugins: [
-        new webpack.optimize.UglifyJsPlugin()
-    ]
+    }
 };
