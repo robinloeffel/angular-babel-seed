@@ -4,7 +4,7 @@
     "description": "The super-simple Angular 2 quickstarter with ES6/Babel",
     "author": "Robin Löffel <hi@robinloeffel.ch> (https://robinloeffel.ch)",
     "licence": "ISC",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "private": true,
     "repository": {
         "type": "git",
