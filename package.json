@@ -1,22 +1,18 @@
 {
-    "name": "angular2-babel-quickstart",
-    "title": "Angular 2 with Babel - Quickstart",
-    "description": "The super-simple Angular 2 quickstarter with ES6/Babel",
+    "name": "angular-babel-seed",
+    "title": "Angular starter with ES6",
+    "description": "The super simple Angular quickstarter with ES6 (Babel)",
     "author": "Robin Löffel <hi@robinloeffel.ch> (https://robinloeffel.ch)",
-    "licence": "ISC",
-    "version": "0.1.0",
-    "private": true,
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/rbnlffl/angular2-babel-quickstart.git"
-    },
-    "bugs": {
-        "url": "https://github.com/rbnlffl/angular2-babel-quickstart/issues"
-    },
+    "licence": "MIT",
+    "version": "1.0.0",
+    "repository": "rbnlffl/angular-babel-seed",
     "keywords": [
+        "angular",
         "angular2",
+        "angular4"
         "es6",
-        "babel"
+        "babel",
+        "webpack"
     ],
     "scripts": {
         "start": "gulp --dev",
@@ -24,32 +20,33 @@
         "dist": "gulp clean && gulp build"
     },
     "dependencies": {
-        "@angular/common": "^2.2.4",
-        "@angular/compiler": "^2.2.4",
-        "@angular/core": "^2.2.4",
-        "@angular/http": "^2.2.4",
-        "@angular/platform-browser": "^2.2.4",
-        "@angular/platform-browser-dynamic": "^2.2.4",
-        "@angular/router": "^3.2.4",
+        "@angular/common": "^4.1.2",
+        "@angular/compiler": "^4.1.2",
+        "@angular/core": "^4.1.2",
+        "@angular/http": "^4.1.2",
+        "@angular/platform-browser": "^4.1.2",
+        "@angular/platform-browser-dynamic": "^4.1.2",
+        "@angular/router": "^4.1.2",
         "core-js": "^2.4.1",
-        "reflect-metadata": "^0.1.8",
-        "rxjs": "5.0.0-beta.12",
-        "zone.js": "^0.6.26"
+        "reflect-metadata": "^0.1.10",
+        "rxjs": "^5.4.0",
+        "zone.js": "^0.8.10"
     },
     "devDependencies": {
-        "babel-core": "^6.18.2",
-        "babel-loader": "^6.2.8",
+        "babel-core": "^6.24.1",
+        "babel-loader": "^7.0.0",
         "babel-preset-angular2": "^0.0.2",
-        "babel-preset-es2015": "^6.18.0",
+        "babel-preset-es2015": "^6.24.1",
         "del": "^2.2.2",
         "gulp": "^3.9.1",
-        "gulp-autoprefixer": "^3.1.1",
-        "gulp-clean-css": "^2.0.13",
+        "gulp-autoprefixer": "^4.0.0",
+        "gulp-clean-css": "^3.2.0",
         "gulp-connect": "^5.0.0",
-        "gulp-sass": "^2.3.2",
-        "gulp-sourcemaps": "^1.9.1",
+        "gulp-sass": "^3.1.0",
+        "gulp-sourcemaps": "^2.6.0",
         "open": "^0.0.5",
         "run-sequence": "^1.2.2",
+        "webpack": "^2.5.1",
         "webpack-stream": "^3.2.0"
     }
 }

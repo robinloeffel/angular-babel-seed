@@ -1,6 +1,6 @@
 'use strict';
 
-let gulp = require('gulp'),
+const gulp = require('gulp'),
     runSequence = require('run-sequence'),
     del = require('del'),
     open = require('open'),
@@ -9,11 +9,13 @@ let gulp = require('gulp'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     cleanCss = require('gulp-clean-css'),
-    webpack = require('webpack-stream'),
-    webpackConfig = process.argv[2] === '--dev' ? require('./webpack.config.dev.js') : require('./webpack.config.prod.js');
+    webpackStream = require('webpack-stream'),
+    webpack = require('webpack'),
+    isDev = process.argv.indexOf('--dev') > -1,
+    webpackConfig = isDev ? require('./webpack.config.dev') : require('./webpack.config.prod');
 
 gulp.task('clean', () => {
-    return del('dist/*');
+    return del('dist');
 });
 
 gulp.task('open', () => {
@@ -22,35 +24,37 @@ gulp.task('open', () => {
 
 gulp.task('webpack', () => {
     return gulp.src('src/js/main.js')
-        .pipe(webpack(webpackConfig))
-        .pipe(gulp.dest('dist/js/'))
+        .pipe(webpackStream(webpackConfig, webpack))
+        .pipe(gulp.dest('dist/js'))
         .pipe(connect.reload());
 });
 
 gulp.task('sass', () => {
     return gulp.src('src/sass/*.scss')
         .pipe(sourcemaps.init())
-        .pipe(sass())
+        .pipe(sass.sync({
+            outputStyle: 'expanded'
+        }))
         .pipe(autoprefixer({
-            browsers: ['last 3 versions'],
+            browsers: ['last 2 versions'],
             cascade: false
         }))
         .pipe(cleanCss())
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('dist/css/'))
+        .pipe(gulp.dest('dist/css'))
         .pipe(connect.reload());
 });
 
 gulp.task('html', () => {
     return gulp.src('src/*.html')
-        .pipe(gulp.dest('dist/'))
+        .pipe(gulp.dest('dist'))
         .pipe(connect.reload());
 });
 
 gulp.task('serve', () => {
     return connect.server({
         port: 8080,
-        root: 'dist/',
+        root: 'dist',
         livereload: true
     });
 });

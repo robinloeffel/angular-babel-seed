@@ -1,5 +1,3 @@
-let webpack = require('webpack');
-
 module.exports = {
     entry: './src/js/main.js',
     output: {
@@ -9,12 +7,12 @@ module.exports = {
         loaders: [
             {
                 test: /\.js$/,
-                loader: 'babel',
+                loader: 'babel-loader',
                 exclude: /node_modules/
             }
         ]
     },
     resolve: {
-        extensions: ['', '.js']
+        extensions: ['.js']
     }
 };
