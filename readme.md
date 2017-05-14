@@ -4,7 +4,7 @@ The super simple [Angular](https://angular.io/) quickstarter with ES6 ([Babel](h
 
 Based on the official [Angular QuickStarter](https://angular.io/docs/ts/latest/quickstart.html).
 
-![Angular Babel Seed in action][https://github.com/rbnlffl/angular-babel-seed/blob/master/screencap.png]
+![Angular Babel Seed in action](https://raw.githubusercontent.com/rbnlffl/angular-babel-seed/master/screencap.png)
 
 ## Setup
 After cloning or downloading this repo, run the following two commands inside the project folder to get it up and running.
