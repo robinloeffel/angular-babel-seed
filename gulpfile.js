@@ -11,6 +11,7 @@ const gulp = require('gulp'),
     cleanCss = require('gulp-clean-css'),
     plumber = require('gulp-plumber'),
     changed = require('gulp-changed'),
+    gulpIf = require('gulp-if'),
     webpackStream = require('webpack-stream'),
     webpack = require('webpack'),
     isDev = process.argv.indexOf('--dev') > -1,
@@ -35,7 +36,7 @@ gulp.task('webpack', () => {
 gulp.task('sass', () => {
     return gulp.src('src/sass/*.scss')
         .pipe(plumber())
-        .pipe(sourcemaps.init())
+        .pipe(gulpIf(isDev, sourcemaps.init()))
         .pipe(sass.sync({
             outputStyle: 'expanded'
         }))
@@ -43,8 +44,8 @@ gulp.task('sass', () => {
             browsers: ['last 2 versions'],
             cascade: false
         }))
-        .pipe(cleanCss())
-        .pipe(sourcemaps.write('.'))
+        .pipe(gulpIf(!isDev, cleanCss()))
+        .pipe(gulpIf(isDev, sourcemaps.write('.')))
         .pipe(gulp.dest('dist/css'))
         .pipe(connect.reload());
 });
@@ -52,7 +53,7 @@ gulp.task('sass', () => {
 gulp.task('html', () => {
     return gulp.src('src/*.html')
         .pipe(plumber())
-        .pipe(changed())
+        .pipe(changed('dist'))
         .pipe(gulp.dest('dist'))
         .pipe(connect.reload());
 });

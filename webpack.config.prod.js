@@ -1,8 +1,8 @@
 const baseConfig = require('./webpack.config'),
-    UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
+    webpack = require('webpack');
 
 module.exports = Object.assign(baseConfig, {
     plugins: [
-        new UglifyJsPlugin()
+        new webpack.optimize.UglifyJsPlugin()
     ]
 });
