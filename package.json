@@ -50,6 +50,7 @@
         "open": "^0.0.5",
         "run-sequence": "^1.2.2",
         "webpack": "^2.5.1",
+        "webpack-merge": "^4.1.0",
         "webpack-stream": "^3.2.0"
     }
 }

@@ -1,8 +1,24 @@
 const baseConfig = require('./webpack.config'),
-    webpack = require('webpack');
+    webpack = require('webpack'),
+    merge = require('webpack-merge');
 
-module.exports = Object.assign(baseConfig, {
+module.exports = merge(baseConfig, {
     plugins: [
-        new webpack.optimize.UglifyJsPlugin()
+        new webpack.optimize.UglifyJsPlugin({
+            mangle: {
+                keep_fnames: true
+            }
+        }),
+
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
+        }),
+
+        new webpack.LoaderOptionsPlugin({
+            minimize: true,
+            debug: false
+        })
     ]
 });
