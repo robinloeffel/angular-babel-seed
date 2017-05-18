@@ -1,4 +1,6 @@
 # Angular 2/4 ES6 Seed
+![GitHub release](https://img.shields.io/github/release/rbnlffl/angular-babel-seed.svg?style=flat-square) ![Status of dependencies](https://img.shields.io/david/rbnlffl/angular-babel-seed.svg?style=flat-square) ![Status of devDependencies](https://img.shields.io/david/dev/rbnlffl/angular-babel-seed.svg?style=flat-square)
+
 The super simple [Angular](https://angular.io/) quickstarter with ES6 ([Babel](https://babeljs.io/)) instead of [TypeScript](https://www.typescriptlang.org/). Built with [gulp](http://gulpjs.com/), bundled with [webpack](https://github.com/webpack/webpack).
 
 
