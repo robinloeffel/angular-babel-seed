@@ -15,10 +15,11 @@ const gulp = require('gulp'),
     webpackStream = require('webpack-stream'),
     webpack = require('webpack'),
     isDev = process.argv.indexOf('--dev') > -1,
-    webpackConfig = isDev ? require('./webpack.config.dev') : require('./webpack.config.prod');
+    paths = require('./config/paths'),
+    webpackConfig = isDev ? require('./config/webpack.config.dev') : require('./config/webpack.config.prod');
 
 gulp.task('clean', () => {
-    return del('dist');
+    return del(paths.dist.root);
 });
 
 gulp.task('open', () => {
@@ -26,15 +27,15 @@ gulp.task('open', () => {
 });
 
 gulp.task('webpack', () => {
-    return gulp.src('src/js/main.js')
+    return gulp.src(paths.src.files.jsEntry)
         .pipe(plumber())
         .pipe(webpackStream(webpackConfig, webpack))
-        .pipe(gulp.dest('dist/js'))
+        .pipe(gulp.dest(paths.dist.js))
         .pipe(connect.reload());
 });
 
 gulp.task('sass', () => {
-    return gulp.src('src/sass/*.scss')
+    return gulp.src(paths.src.files.sass)
         .pipe(plumber())
         .pipe(gulpIf(isDev, sourcemaps.init()))
         .pipe(sass.sync({
@@ -46,15 +47,15 @@ gulp.task('sass', () => {
         }))
         .pipe(gulpIf(!isDev, cleanCss()))
         .pipe(gulpIf(isDev, sourcemaps.write('.')))
-        .pipe(gulp.dest('dist/css'))
+        .pipe(gulp.dest(paths.dist.css))
         .pipe(connect.reload());
 });
 
 gulp.task('html', () => {
-    return gulp.src('src/*.html')
+    return gulp.src(paths.src.files.html)
         .pipe(plumber())
-        .pipe(changed('dist'))
-        .pipe(gulp.dest('dist'))
+        .pipe(changed(paths.dist.root))
+        .pipe(gulp.dest(paths.dist.root))
         .pipe(connect.reload());
 });
 
@@ -67,9 +68,9 @@ gulp.task('serve', () => {
 });
 
 gulp.task('watch', () => {
-    gulp.watch('src/js/*.js', ['webpack']);
-    gulp.watch('src/sass/*.scss', ['sass']);
-    gulp.watch('src/*.html', ['html']);
+    gulp.watch(paths.src.files.js, ['webpack']);
+    gulp.watch(paths.src.files.sass, ['sass']);
+    gulp.watch(paths.src.files.html, ['html']);
 });
 
 gulp.task('build', (callback) => {
