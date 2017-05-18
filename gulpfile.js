@@ -9,6 +9,8 @@ const gulp = require('gulp'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     cleanCss = require('gulp-clean-css'),
+    plumber = require('gulp-plumber'),
+    changed = require('gulp-changed'),
     webpackStream = require('webpack-stream'),
     webpack = require('webpack'),
     isDev = process.argv.indexOf('--dev') > -1,
@@ -24,6 +26,7 @@ gulp.task('open', () => {
 
 gulp.task('webpack', () => {
     return gulp.src('src/js/main.js')
+        .pipe(plumber())
         .pipe(webpackStream(webpackConfig, webpack))
         .pipe(gulp.dest('dist/js'))
         .pipe(connect.reload());
@@ -31,6 +34,7 @@ gulp.task('webpack', () => {
 
 gulp.task('sass', () => {
     return gulp.src('src/sass/*.scss')
+        .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(sass.sync({
             outputStyle: 'expanded'
@@ -47,6 +51,8 @@ gulp.task('sass', () => {
 
 gulp.task('html', () => {
     return gulp.src('src/*.html')
+        .pipe(plumber())
+        .pipe(changed())
         .pipe(gulp.dest('dist'))
         .pipe(connect.reload());
 });
