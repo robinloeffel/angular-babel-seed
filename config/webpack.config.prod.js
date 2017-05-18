@@ -7,6 +7,9 @@ module.exports = merge(baseConfig, {
         new webpack.optimize.UglifyJsPlugin({
             mangle: {
                 keep_fnames: true
+            },
+            output: {
+                comments: false
             }
         }),
 

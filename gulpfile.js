@@ -42,7 +42,7 @@ gulp.task('sass', () => {
             outputStyle: 'expanded'
         }))
         .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
+            browsers: ['last 2 versions', 'not ie < 11', 'not ie_mob < 11'],
             cascade: false
         }))
         .pipe(gulpIf(!isDev, cleanCss()))
