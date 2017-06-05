@@ -1,13 +1,20 @@
+const babelConfig = require('./babel.config');
+
 module.exports = {
     output: {
          filename: 'bundle.js'
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: babelConfig
+                    }
+                ]
             }
         ]
     },

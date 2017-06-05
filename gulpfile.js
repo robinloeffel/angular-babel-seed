@@ -16,11 +16,16 @@ const gulp = require('gulp'),
     webpack = require('webpack'),
     isDev = process.argv.indexOf('--dev') > -1,
     paths = require('./config/paths'),
-    webpackConfig = isDev ? require('./config/webpack.config.dev') : require('./config/webpack.config.prod');
+    webpackConfig = isDev ? require('./config/webpack.config.dev') : require('./config/webpack.config.prod'),
+    connectConfig = require('./config/connect.config'),
+    sassConfig = require('./config/sass.config'),
+    autoprefixerConfig = require('./config/autoprefixer.config');
 
 gulp.task('clean', () => del(paths.dist.root));
 
-gulp.task('open', () => open('http://localhost:8080'));
+gulp.task('open', () => open('http://localhost:' + connectConfig.port));
+
+gulp.task('serve', () => connect.server(connectConfig));
 
 gulp.task('webpack', () => {
     return gulp.src(paths.src.files.jsEntry)
@@ -34,13 +39,8 @@ gulp.task('sass', () => {
     return gulp.src(paths.src.files.sass)
         .pipe(plumber())
         .pipe(gulpIf(isDev, sourcemaps.init()))
-        .pipe(sass.sync({
-            outputStyle: 'expanded'
-        }))
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions', 'not ie < 11', 'not ie_mob < 11'],
-            cascade: false
-        }))
+        .pipe(sass.sync(sassConfig))
+        .pipe(autoprefixer(autoprefixerConfig))
         .pipe(gulpIf(!isDev, cleanCss()))
         .pipe(gulpIf(isDev, sourcemaps.write('.')))
         .pipe(gulp.dest(paths.dist.css))
@@ -53,14 +53,6 @@ gulp.task('html', () => {
         .pipe(changed(paths.dist.root))
         .pipe(gulp.dest(paths.dist.root))
         .pipe(connect.reload());
-});
-
-gulp.task('serve', () => {
-    return connect.server({
-        port: 8080,
-        root: 'dist',
-        livereload: true
-    });
 });
 
 gulp.task('watch', () => {
