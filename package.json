@@ -4,7 +4,7 @@
     "description": "The super simple Angular quickstarter with ES6 (Babel)",
     "author": "Robin Löffel <hi@robinloeffel.ch> (https://robinloeffel.ch)",
     "license": "MIT",
-    "version": "1.0.0",
+    "version": "1.2.0",
     "repository": "rbnlffl/angular-babel-seed",
     "keywords": [
         "angular",
@@ -30,18 +30,18 @@
         "core-js": "^2.4.1",
         "reflect-metadata": "^0.1.10",
         "rxjs": "^5.4.0",
-        "zone.js": "^0.8.10"
+        "zone.js": "^0.8.11"
     },
     "devDependencies": {
         "babel-core": "^6.24.1",
         "babel-loader": "^7.0.0",
         "babel-preset-angular2": "^0.0.2",
-        "babel-preset-env": "^1.4.0",
+        "babel-preset-env": "^1.5.1",
         "del": "^2.2.2",
         "gulp": "^3.9.1",
         "gulp-autoprefixer": "^4.0.0",
         "gulp-changed": "^3.1.0",
-        "gulp-clean-css": "^3.3.1",
+        "gulp-clean-css": "^3.4.1",
         "gulp-connect": "^5.0.0",
         "gulp-if": "^2.0.2",
         "gulp-plumber": "^1.1.0",
@@ -49,7 +49,7 @@
         "gulp-sourcemaps": "^2.6.0",
         "open": "^0.0.5",
         "run-sequence": "^1.2.2",
-        "webpack": "^2.5.1",
+        "webpack": "^2.6.1",
         "webpack-merge": "^4.1.0",
         "webpack-stream": "^3.2.0"
     }
