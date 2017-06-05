@@ -18,13 +18,9 @@ const gulp = require('gulp'),
     paths = require('./config/paths'),
     webpackConfig = isDev ? require('./config/webpack.config.dev') : require('./config/webpack.config.prod');
 
-gulp.task('clean', () => {
-    return del(paths.dist.root);
-});
+gulp.task('clean', () => del(paths.dist.root));
 
-gulp.task('open', () => {
-    return open('http://localhost:8080');
-});
+gulp.task('open', () => open('http://localhost:8080'));
 
 gulp.task('webpack', () => {
     return gulp.src(paths.src.files.jsEntry)
@@ -73,10 +69,10 @@ gulp.task('watch', () => {
     gulp.watch(paths.src.files.html, ['html']);
 });
 
-gulp.task('build', (callback) => {
+gulp.task('build', callback => {
     runSequence(['webpack', 'sass', 'html'], callback);
 });
 
-gulp.task('default', (callback) => {
+gulp.task('default', callback => {
     runSequence('clean', 'build', 'serve', 'watch', 'open', callback);
 });
