@@ -1,8 +1,7 @@
 const baseConfig = require('./webpack.config'),
-    webpack = require('webpack'),
-    merge = require('webpack-merge');
+    webpack = require('webpack');
 
-module.exports = merge(baseConfig, {
+module.exports = Object.assign(baseConfig, {
     plugins: [
         new webpack.optimize.UglifyJsPlugin({
             mangle: {
