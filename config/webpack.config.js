@@ -2,7 +2,7 @@ const babelConfig = require('./babel.config');
 
 module.exports = {
     output: {
-         filename: 'bundle.js'
+         filename: '[name].js'
     },
     module: {
         rules: [

@@ -1,5 +1,6 @@
-const baseConfig = require('./webpack.config');
+const merge = require('webpack-merge'),
+    baseConfig = require('./webpack.config');
 
-module.exports = Object.assign(baseConfig, {
-    devtool: 'eval-source-map'
+module.exports = merge(baseConfig, {
+    devtool: 'source-map'
 });

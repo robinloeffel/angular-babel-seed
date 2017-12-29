@@ -4,6 +4,7 @@ const gulp = require('gulp'),
     runSequence = require('run-sequence'),
     del = require('del'),
     open = require('open'),
+    named = require('vinyl-named'),
     connect = require('gulp-connect'),
     sourcemaps = require('gulp-sourcemaps'),
     sass = require('gulp-sass'),
@@ -30,6 +31,7 @@ gulp.task('serve', () => connect.server(connectConfig));
 gulp.task('webpack', () => {
     return gulp.src(paths.src.files.jsEntry)
         .pipe(plumber())
+        .pipe(named())
         .pipe(webpackStream(webpackConfig, webpack))
         .pipe(gulp.dest(paths.dist.js))
         .pipe(connect.reload());
